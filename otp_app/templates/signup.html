@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+
+<style>
+    form{
+        width: 500px;
+        height: auto;
+        padding: 20px 20px 20px 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin: 50px auto;
+        border-radius: 10px;
+    }
+    form p{
+        text-align: center;
+    }
+
+    form small{
+        color: red;
+        size: 12px;
+    }
+
+    form h3{
+        text-align: center
+    }
+</style>
+
+
+    <form action="" method='POST'>
+        {% csrf_token %}
+        <h3><strong>Signup Form</strong></h3>
+
+        
+        {% for field in form  %}
+
+        
+        {% if field.errors %}
+
+        <div class="mb-3">
+            <label class="form-label">{{field.label}}</label>
+            {{field}}
+            <small>{{field.errors}}</small>
+        </div>
+
+        {% else %}
+
+        <div class="mb-3">
+            <label class="form-label">{{field.label}}</label>
+            {{field}}
+        </div>
+
+            
+        {% endif %}
+            
+
+        
+            
+        {% endfor %}
+            
+
+
+          <button class="btn btn-primary" style="width:100%">Register</button>
+          <p>Already have an account? <a href="{% url 'signin' %}">Login</a></p>
+
+    </form>
+{% endblock content %}
+    

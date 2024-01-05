@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+
+<style>
+    form{
+        width: 500px;
+        height: auto;
+        padding: 20px 20px 20px 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin: 50px auto;
+        border-radius: 10px;
+    }
+    form p{
+        text-align: center;
+    }
+
+    form h3{
+        text-align: center
+    }
+</style>
+
+
+    <form action="" method='POST'>
+        {% csrf_token %}
+        <h3><strong>Resend OTP</strong></h3>
+        <div class="mb-3">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-control" name="otp_email" placeholder="Enter email-address">
+          </div>
+
+          <button class="btn btn-primary" style="width:100%">Send OTP</button>
+          {% comment %} <p>Need a new OTP? <a href="">Resend OTP</a></p> {% endcomment %}
+
+    </form>
+{% endblock content %}
+    
